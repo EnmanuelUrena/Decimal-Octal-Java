@@ -1,14 +1,23 @@
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) throws Exception {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Type a number:");
+        int decimal = input.nextInt();
+        input.close();
+        System.out.println("Result: " + Decimal_Octal(decimal));
+    }
+    public static String Decimal_Octal(int decimal){
         String octal = "";
-        int decimal = 20;
-        String octalCharacters = "01234567";
-        while (decimal > 0) {
+        String OctalCharacters = "01234567";
+        while(decimal > 0)
+        {
             int residuo = decimal % 8;
-            octal = (octalCharacters.charAt(residuo) + octal);
+            octal = (OctalCharacters.charAt(residuo) + octal);
 
             decimal /= 8;
         }
-        System.out.println(octal);
+        return octal;
     }
 }
